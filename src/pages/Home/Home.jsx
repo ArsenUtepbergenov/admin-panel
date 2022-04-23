@@ -1,4 +1,5 @@
 import Chart from 'components/Chart/Chart'
+import TableProducts from 'components/Table/TableProducts'
 import Featured from 'components/Featured/Featured'
 import Navbar from 'components/Navbar/Navbar'
 import Sidebar from 'components/Sidebar/Sidebar'
@@ -19,7 +20,11 @@ const Home = () => {
         </div>
         <div className='charts'>
           <Featured />
-          <Chart />
+          <Chart title="Last 6 Months (Revenue)" aspect={2 / 1} />
+        </div>
+        <div className="listContainer">
+          <div className="listTitle">Latest Transaction</div>
+          <TableProducts />
         </div>
       </div>
     </div>
