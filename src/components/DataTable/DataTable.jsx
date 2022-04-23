@@ -24,7 +24,10 @@ const DataTable = () => {
             </Link>
             <div
               className='deleteButton'
-              onClick={() => handleDelete(params.row.id)}
+              onClick={(e) => {
+                e.stopPropagation()
+                handleDelete(params.row.id)
+              }}
             >
               Delete
             </div>
@@ -42,6 +45,7 @@ const DataTable = () => {
         </Link>
       </div>
       <DataGrid
+        className='dataGrid'
         rows={data}
         columns={[...userColumns, ...actionColumn]}
         pageSize={9}
