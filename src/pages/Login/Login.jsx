@@ -1,8 +1,11 @@
+import LoginForm from 'components/Forms/Login'
 import './login.scss'
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <section className="login">
+      <LoginForm />
+    </section>
   )
 }
 

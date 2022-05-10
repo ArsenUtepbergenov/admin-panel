@@ -1,6 +1,5 @@
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { DarkModeContext } from 'contexts/darkModeContext'
 import DashboardIcon from '@mui/icons-material/Dashboard'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline'
 import LocalShippingIcon from '@mui/icons-material/LocalShipping'
@@ -13,10 +12,13 @@ import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone'
 import SettingsSystemDaydreamOutlinedIcon from '@mui/icons-material/SettingsSystemDaydreamOutlined'
 import PsychologyOutlinedIcon from '@mui/icons-material/PsychologyOutlined'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
+import { DarkModeContext } from 'contexts/darkModeContext'
+import { StoreContext } from 'index'
 import './sidebar.scss'
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext)
+  const { store } = useContext(StoreContext)
 
   return (
     <div className="sidebar">
@@ -25,7 +27,6 @@ const Sidebar = () => {
           <span className="logo">Admin Panel</span>
         </Link>
       </div>
-      <hr />
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
@@ -79,7 +80,7 @@ const Sidebar = () => {
             <AccountCircleOutlinedIcon className="icon" />
             <span>Profile</span>
           </li>
-          <li>
+          <li onClick={() => store.logout()}>
             <ExitToAppIcon className="icon" />
             <span>Logout</span>
           </li>
